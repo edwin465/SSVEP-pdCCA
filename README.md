@@ -26,5 +26,13 @@ In the literature, the CCA has been applied in the multi-frequency-modulated SSV
 
 In this project, we utilize the phase difference feature to improve the recognition accuracy of the CCA. **We develop a phase difference constrained CCA (pdCCA)**.
 
-### Three multi-frequency-modulated visual stimulation paradigms and four datasets  
+## An example of the multi-frequency-modulated visual stimulation paradigms
+MFSC  
+downloaded from  
+
+
+## Simulation study
+We compare the CCA and the pdCCA  
+
+
 
