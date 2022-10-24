@@ -17,7 +17,14 @@ For example, more than one frequency are used to drive one visual target in diff
 > [9] X. Chen, Z. Chen, S. Gao, and X. Gao, “Brain–Computer Interface Based on Intermodulation Frequency,” J. Neural Eng., vol. 10, no. 6, p. 066009, 2013.  
 > [10] L. Liang, J. Lin, C. Yang, Y. Wang, X. Chen, S. Gao, and X. Gao, “Optimizing a Dual-Frequency and Phase Modulation Method for SSVEP-Based BCIs,” J. Neural Eng., vol. 17, no. 4, p. 046026, 2020.  
 
-![Result11](https://github.com/edwin465/SSVEP-pdCCA/blob/main/plot_sfm_mfm_vs.pdf)  
+![Result1](https://github.com/edwin465/SSVEP-pdCCA/blob/main/plot_sfm_mfm_vs.pdf)  
 
+## What is the phase difference constrained CCA (pdCCA)?
+The canonical correlation analysis (CCA) is widely used to identify the stimulus frequency from the single-frequency-modulated SSVEPs in the traditional SSVEP-based BCIs. Many experiment results have demonstrated that the CCA can provide an acceptable accuracy. In addition, the CCA is ease-to-use and conveniently applied into many different scenarios. Importantly, the CCA is `calibration-free`.
 
-In this project, we propose a canonical correlation analysis (CCA) with the phase difference constraint, (phase difference constrained CCA, pdCCA)
+In the literature, the CCA has been applied in the multi-frequency-modulated SSVEP-based BCIs. However, the existing CCA performance might not be optimal. Because the CCA usually neglect the phase features of the SSVEPs. In the multi-frequency-modulated visual stimulation paradigm, the multiple frequency components of SSVEPs are phase-locked to the multiple visual stimuli, and thus the phase differences between different frequency components should be constrained. **The traditional CCA is incapable of extracting these phase difference features in the recognition**.
+
+In this project, we utilize the phase difference feature to improve the recognition accuracy of the CCA. **We develop a phase difference constrained CCA (pdCCA)**.
+
+### Three multi-frequency-modulated visual stimulation paradigms and four datasets  
+
