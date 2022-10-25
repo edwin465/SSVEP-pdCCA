@@ -26,10 +26,15 @@ In the literature, the CCA has been applied in the multi-frequency-modulated SSV
 
 In this project, we utilize the phase difference feature to improve the recognition accuracy of the CCA. **We develop a phase difference constrained CCA (pdCCA)**.  
 
-First, the CCA is used to the spatial filters to maximize the correlation $r$ between the SSVEP ($x$) and reference signal ($y$) after spatial filtering. 
+First, the CCA is used to the spatial filters $\mathbf{u}$ and $\mathbf{v}$ to maximize the correlation $r$ between the SSVEP $\mathbf{X}$ and reference signal $\mathbf{Y}$ after spatial filtering, i.e.,  
 
-$r$
-$\sqrt{3x-1}+(1+x)^2$
+```math
+r_k=\max_{\mathbf{u},\mathbf{v}}{\frac{\mathbf{u}^\top\mathbf{X}^\top\mathbf{Y}_k\mathbf{v}}{\sqrt{\mathbf{u}^\top \mathbf{X}^\top\mathbf{X}\mathbf{u}\cdot\mathbf{v}^\top\mathbf{Y}_k^\top\mathbf{Y}_k\mathbf{v}}}}=\mathrm{CCA}(\mathbf{X},\mathbf{Y}_k),
+```  
+
+where $\mathbf{Y}_{CCA}$
+
+Second, the pdCCA is a CCA under a predefined phase difference constraint. This phase difference constraint is mainly controlled by the phase of the sin-cosine reference signal.
 
 ## An example of the multi-frequency-modulated visual stimulation paradigms
 MFSC  
