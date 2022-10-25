@@ -26,36 +26,38 @@ In the literature, the CCA has been applied in the multi-frequency-modulated SSV
 
 In this project, we utilize the phase difference feature to improve the recognition accuracy of the CCA. **We develop a phase difference constrained CCA (pdCCA)**.  
 
-First, the CCA is used to the spatial filters $\mathbf{u}$ and $\mathbf{v}$ to maximize the correlation $r$ between the SSVEP $\mathbf{X}$ and reference signal $\mathbf{Y}$ after spatial filtering, i.e.,  
+## An example of the pdCCA for MFSC visual stimulation paradigm
+
+First, we introduct the CCA method for MFSC visual stimulation paradigm. According to [4], the CCA is used to the spatial filters $\mathbf{u}$ and $\mathbf{v}$ to maximize the correlation $r$ between the SSVEP $\mathbf{X}$ and reference signal $\mathbf{Y}$ after spatial filtering, i.e.,  
 
 ```math
-r_k=\max_{\mathbf{u},\mathbf{v}}{\frac{\mathbf{u}^\top\mathbf{X}^\top\mathbf{Y}_{CCA}\mathbf{v}}{\sqrt{\mathbf{u}^\top \mathbf{X}^\top\mathbf{X}\mathbf{u}\cdot\mathbf{v}^\top\mathbf{Y}_{CCA}^\top\mathbf{Y}_{CCA}\mathbf{v}}}}=\mathrm{CCA}(\mathbf{X},\mathbf{Y}_{CCA}),
+r_j=\max_{\mathbf{u},\mathbf{v}}{\frac{\mathbf{u}^\top\mathbf{X}_j^\top\mathbf{Y}_{CCA}\mathbf{v}}{\sqrt{\mathbf{u}^\top \mathbf{X}_j^\top\mathbf{X}_j\mathbf{u}\cdot\mathbf{v}^\top\mathbf{Y}_{CCA}^\top\mathbf{Y}_{CCA}\mathbf{v}}}}=\mathrm{CCA}(\mathbf{X},\mathbf{Y}_{CCA}),
 ```  
 
 and  
 
 ```math
 \mathbf{Y}_{CCA} = \left[\begin{array}{c}
-    \sin (2\pi F_k t+\Phi_k)\\
-    \cos (2\pi F_k t+\Phi_k)\\
+    \sin (2\pi f_{k,j} t)\\
+    \cos (2\pi f_{k,j} t)\\
     \vdots\\
-    \sin (2\pi N_h F_k t+N_h\Phi_k)\\
-    \cos (2\pi N_h F_k t+N_h\Phi_k)\\    
+    \sin (2\pi N_h f_{k,j} t)\\
+    \cos (2\pi N_h f_{k,j} t)\\    
 	\end{array}\right]^\top = \left[\begin{array}{c}
-    \mathbf{\Gamma}_{F_k,\Phi_k}^\top\\
-    \mathbf{\Gamma}_{2\cdot F_k,2\cdot \Phi_k}^\top\\
+    \mathbf{\Gamma}_{f_{k,j}}^\top\\
+    \mathbf{\Gamma}_{2\cdot f_{k,j}}^\top\\
     \vdots\\
-    \mathbf{\Gamma}_{N_h F_k,N_h \Phi_k}^\top
+    \mathbf{\Gamma}_{N_h f_{k,j}}^\top
 	\end{array}\right]^\top
 ```
 
-where $F_k$ and $\Phi_k$ are the $k$-th stimulus frequency and phase. The final recognition result is determined by
+where $f_{k,j}$ is the $j$-th stimulus frequency of the $k$-th visual target, $j=1,2,3,4$, and $k=1,2,\cdots,160$. The final recognition result is determined by
 
 ```math
-\hat{k} =\max_{k}{\{r_k\}} 
+\hat{k} =\max_{k}{\{r_{k,1}+r_{k,2}+r_{k,3}+r_{k,4}\}} 
 ```
 
-Second, the pdCCA is a CCA under a predefined phase difference constraint. This phase difference constraint is mainly controlled by the phase of the sin-cosine reference signal.
+Second, we introduce the proposed pdCCA. The pdCCA is a CCA under a predefined phase difference constraint. Specifically, the phase of the sine-cosine reference signal is determined by the stimulus phase. In addition, the sine and cosine basis functions of $\mathbf{Y}_{pdCCA}$ for different frequencies are concatenated horizontally
 
 ## An example of the multi-frequency-modulated visual stimulation paradigms
 MFSC  
