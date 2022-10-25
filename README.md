@@ -24,7 +24,12 @@ The canonical correlation analysis (CCA) is widely used to identify the stimulus
 
 In the literature, the CCA has been applied in the multi-frequency-modulated SSVEP-based BCIs. However, the existing CCA performance might not be optimal. Because the CCA usually neglect the phase features of the SSVEPs. In the multi-frequency-modulated visual stimulation paradigm, the multiple frequency components of SSVEPs are phase-locked to the multiple visual stimuli, and thus the phase differences between different frequency components should be constrained. **The traditional CCA is incapable of extracting these phase difference features in the recognition**.
 
-In this project, we utilize the phase difference feature to improve the recognition accuracy of the CCA. **We develop a phase difference constrained CCA (pdCCA)**.
+In this project, we utilize the phase difference feature to improve the recognition accuracy of the CCA. **We develop a phase difference constrained CCA (pdCCA)**.  
+
+First, the CCA is used to the spatial filters to maximize the correlation $r$ between the SSVEP ($x$) and reference signal ($y$) after spatial filtering. 
+
+$r$
+$\sqrt{3x-1}+(1+x)^2$
 
 ## An example of the multi-frequency-modulated visual stimulation paradigms
 MFSC  
