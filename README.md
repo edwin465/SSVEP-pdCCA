@@ -81,11 +81,12 @@ and
 ```	
 
 ```math	
-	= \left[\begin{array}{cccc}
-    \mathbf{\Gamma}_{f_{k,1},\phi_{k,1}}^\top &  \mathbf{\Gamma}_{f_{k,2},\phi_{k,2}}^\top&  \mathbf{\Gamma}_{f_{k,3},\phi_{k,3}}^\top& \mathbf{\Gamma}_{f_{k,4},\phi_{k,4}}^\top\\
-    \mathbf{\Gamma}_{2f_{k,1},2\phi_{k,1}}^\top &  \mathbf{\Gamma}_{2f_{k,2},2\phi_{k,2}}^\top&  \mathbf{\Gamma}_{2f_{k,3},2\phi_{k,3}}^\top& \mathbf{\Gamma}_{2f_{k,4},2\phi_{k,4}}^\top\\
-    \vdots & \vdots & \vdots & \vdots \\ 
-    \mathbf{\Gamma}_{N_h \cdot f_{k,1}, N_h \cdot \phi_{k,1}}^\top &  \mathbf{\Gamma}_{N_h \cdot f_{k,2}, N_h \cdot \phi_{k,2}^\top&  \mathbf{\Gamma}_{N_h \cdot f_{k,3}, N_h \cdot \phi_{k,3}}^\top& \mathbf{\Gamma}_{N_h \cdot f_{k,4}, N_h \cdot \phi_{k,4}}^\top\end{array}\right]^\top
+= \left[\begin{array}{cccc}
+    \mathbf{\Gamma}_{f_{k,1},\phi_{k,1}} & \mathbf{\Gamma}_{2f_{k,1},2\phi_{k,1}} & \cdots & \mathbf{\Gamma}_{N_h f_{k,1},N_h \phi_{k,1}}\\
+    \mathbf{\Gamma}_{f_{k,2},\phi_{k,2}} & \mathbf{\Gamma}_{2f_{k,2},2\phi_{k,2}} & \cdots & \mathbf{\Gamma}_{N_h f_{k,2},N_h \phi_{k,2}}\\
+    \mathbf{\Gamma}_{f_{k,3},\phi_{k,3}} & \mathbf{\Gamma}_{2f_{k,3},2\phi_{k,3}} & \cdots & \mathbf{\Gamma}_{N_h f_{k,3},N_h \phi_{k,3}}\\
+    \mathbf{\Gamma}_{f_{k,4},\phi_{k,4}} & \mathbf{\Gamma}_{2f_{k,4},2\phi_{k,4}} & \cdots & \mathbf{\Gamma}_{N_h f_{k,4},N_h \phi_{k,4}}
+    \end{array}\right]
 ```
 
 ## An example of the multi-frequency-modulated visual stimulation paradigms
