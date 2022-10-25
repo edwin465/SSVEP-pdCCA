@@ -28,10 +28,10 @@ In this project, we utilize the phase difference feature to improve the recognit
 
 ## An example of the pdCCA for MFSC visual stimulation paradigm
 
-First, we introduct the CCA method for MFSC visual stimulation paradigm. According to [4], the CCA is used to find the spatial filters $\mathbf{u}$ and $\mathbf{v}$ to maximize the correlation $r$ between the 1-s SSVEP $\mathbf{X}$ and reference signal $\mathbf{Y}$ after spatial filtering, i.e.,  
+As an example, we introduct the CCA method for MFSC visual stimulation paradigm. According to [4], the CCA is used to find the spatial filters $\mathbf{u}$ and $\mathbf{v}$ to maximize the correlation $r$ between the 1-s SSVEP $\mathbf{X}$ and reference signal $\mathbf{Y}$ after spatial filtering, i.e.,  
 
 ```math
-r_j=\max_{\mathbf{u},\mathbf{v}}{\frac{\mathbf{u}^\top\mathbf{X}_j^\top\mathbf{Y}_{CCA}\mathbf{v}}{\sqrt{\mathbf{u}^\top \mathbf{X}_j^\top\mathbf{X}_j\mathbf{u}\cdot\mathbf{v}^\top\mathbf{Y}_{CCA}^\top\mathbf{Y}_{CCA}\mathbf{v}}}}=\mathrm{CCA}(\mathbf{X}_j,\mathbf{Y}_{CCA}),
+r_{k,j}=\max_{\mathbf{u},\mathbf{v}}{\frac{\mathbf{u}^\top\mathbf{X}_j^\top\mathbf{Y}_{CCA}\mathbf{v}}{\sqrt{\mathbf{u}^\top \mathbf{X}_j^\top\mathbf{X}_j\mathbf{u}\cdot\mathbf{v}^\top\mathbf{Y}_{CCA}^\top\mathbf{Y}_{CCA}\mathbf{v}}}}=\mathrm{CCA}(\mathbf{X}_j,\mathbf{Y}_{CCA}),
 ```  
 
 and  
@@ -57,11 +57,11 @@ where $f_{k,j}$ is the $j$-th stimulus frequency of the $k$-th visual target, $j
 \hat{k} =\max_{k}{\{r_{k,1}+r_{k,2}+r_{k,3}+r_{k,4}\}} 
 ```
 
-Second, we introduce the proposed pdCCA. The pdCCA is a CCA under a predefined phase difference constraint. Specifically, the phase of the sine-cosine reference signal is determined by the stimulus phase. In addition, the sine and cosine basis functions for different frequencies are concatenated horizontally. Then the CCA is used to find the spatial filters $\mathbf{u}$ and $\mathbf{v}$ to maximize the correlation $\rho$ between the 4-s SSVEP and $\mathbf{Y}\_{pdCCA}$ after spatial filtering:   
+Here, we introduce the proposed pdCCA. The pdCCA is a CCA under a predefined phase difference constraint. Specifically, the phase of the sine-cosine reference signal is determined by the stimulus phase. In addition, the sine and cosine basis functions for different frequencies are concatenated horizontally. Then the CCA is used to find the spatial filters $\mathbf{u}$ and $\mathbf{v}$ to maximize the correlation $\rho$ between the 4-s SSVEP and $\mathbf{Y}\_{pdCCA}$ after spatial filtering:   
    
   
 ```math
-\rho_j=\mathrm{CCA}\left(\left[\begin{array}{c}
+\rho_k=\mathrm{CCA}\left(\left[\begin{array}{c}
    \mathbf{X}_1 \\
    \mathbf{X}_2 \\
    \mathbf{X}_3 \\
@@ -87,6 +87,12 @@ and
     \mathbf{\Gamma}_{f_{k,3},\phi_{k,3}} & \mathbf{\Gamma}_{2f_{k,3},2\phi_{k,3}} & \cdots & \mathbf{\Gamma}_{N_h f_{k,3},N_h \phi_{k,3}}\\
     \mathbf{\Gamma}_{f_{k,4},\phi_{k,4}} & \mathbf{\Gamma}_{2f_{k,4},2\phi_{k,4}} & \cdots & \mathbf{\Gamma}_{N_h f_{k,4},N_h \phi_{k,4}}
     \end{array}\right]
+```
+
+The final recognition result is determined by
+
+```math
+\hat{k} =\max_{k}{\{\rho_k\}} 
 ```
 
 ## An example of the multi-frequency-modulated visual stimulation paradigms
