@@ -29,10 +29,31 @@ In this project, we utilize the phase difference feature to improve the recognit
 First, the CCA is used to the spatial filters $\mathbf{u}$ and $\mathbf{v}$ to maximize the correlation $r$ between the SSVEP $\mathbf{X}$ and reference signal $\mathbf{Y}$ after spatial filtering, i.e.,  
 
 ```math
-r_k=\max_{\mathbf{u},\mathbf{v}}{\frac{\mathbf{u}^\top\mathbf{X}^\top\mathbf{Y}_k\mathbf{v}}{\sqrt{\mathbf{u}^\top \mathbf{X}^\top\mathbf{X}\mathbf{u}\cdot\mathbf{v}^\top\mathbf{Y}_k^\top\mathbf{Y}_k\mathbf{v}}}}=\mathrm{CCA}(\mathbf{X},\mathbf{Y}_k),
+r_k=\max_{\mathbf{u},\mathbf{v}}{\frac{\mathbf{u}^\top\mathbf{X}^\top\mathbf{Y}_{CCA}\mathbf{v}}{\sqrt{\mathbf{u}^\top \mathbf{X}^\top\mathbf{X}\mathbf{u}\cdot\mathbf{v}^\top\mathbf{Y}_{CCA}^\top\mathbf{Y}_{CCA}\mathbf{v}}}}=\mathrm{CCA}(\mathbf{X},\mathbf{Y}_{CCA}),
 ```  
 
-where $\mathbf{Y}_{CCA}$
+and  
+
+```math
+\mathbf{Y}_{CCA} = \left[\begin{array}{c}
+    \sin (2\pi F_k t+\Phi_k)\\
+    \cos (2\pi F_k t+\Phi_k)\\
+    \vdots\\
+    \sin (2\pi N_h F_k t+N_h\Phi_k)\\
+    \cos (2\pi N_h F_k t+N_h\Phi_k)\\    
+	\end{array}\right]^\top = \left[\begin{array}{c}
+    \mathbf{\Gamma}_{F_k,\Phi_k}^\top\\
+    \mathbf{\Gamma}_{2\cdot F_k,2\cdot \Phi_k}^\top\\
+    \vdots\\
+    \mathbf{\Gamma}_{N_h F_k,N_h \Phi_k}^\top
+	\end{array}\right]^\top
+```
+
+where $F_k$ and $\Phi_k$ are the $k$-th stimulus frequency and phase. The final recognition result is determined by
+
+```math
+\hat{k} =\max_{k}{\{r_k\}} 
+```
 
 Second, the pdCCA is a CCA under a predefined phase difference constraint. This phase difference constraint is mainly controlled by the phase of the sin-cosine reference signal.
 
