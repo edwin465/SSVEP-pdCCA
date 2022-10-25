@@ -28,10 +28,10 @@ In this project, we utilize the phase difference feature to improve the recognit
 
 ## An example of the pdCCA for MFSC visual stimulation paradigm
 
-First, we introduct the CCA method for MFSC visual stimulation paradigm. According to [4], the CCA is used to the spatial filters $\mathbf{u}$ and $\mathbf{v}$ to maximize the correlation $r$ between the SSVEP $\mathbf{X}$ and reference signal $\mathbf{Y}$ after spatial filtering, i.e.,  
+First, we introduct the CCA method for MFSC visual stimulation paradigm. According to [4], the CCA is used to find the spatial filters $\mathbf{u}$ and $\mathbf{v}$ to maximize the correlation $r$ between the 1-s SSVEP $\mathbf{X}$ and reference signal $\mathbf{Y}$ after spatial filtering, i.e.,  
 
 ```math
-r_j=\max_{\mathbf{u},\mathbf{v}}{\frac{\mathbf{u}^\top\mathbf{X}_j^\top\mathbf{Y}_{CCA}\mathbf{v}}{\sqrt{\mathbf{u}^\top \mathbf{X}_j^\top\mathbf{X}_j\mathbf{u}\cdot\mathbf{v}^\top\mathbf{Y}_{CCA}^\top\mathbf{Y}_{CCA}\mathbf{v}}}}=\mathrm{CCA}(\mathbf{X},\mathbf{Y}_{CCA}),
+r_j=\max_{\mathbf{u},\mathbf{v}}{\frac{\mathbf{u}^\top\mathbf{X}_j^\top\mathbf{Y}_{CCA}\mathbf{v}}{\sqrt{\mathbf{u}^\top \mathbf{X}_j^\top\mathbf{X}_j\mathbf{u}\cdot\mathbf{v}^\top\mathbf{Y}_{CCA}^\top\mathbf{Y}_{CCA}\mathbf{v}}}}=\mathrm{CCA}(\mathbf{X}_j,\mathbf{Y}_{CCA}),
 ```  
 
 and  
@@ -48,7 +48,7 @@ and
     \mathbf{\Gamma}_{2\cdot f_{k,j}}^\top\\
     \vdots\\
     \mathbf{\Gamma}_{N_h f_{k,j}}^\top
-	\end{array}\right]^\top
+	\end{array}\right]^\top = [\mathbf{\Gamma}_{f_{k,j}},\mathbf{\Gamma}_{2f_{k,j}},\cdots,\mathbf{\Gamma}_{N_h f_{k,j}}]
 ```
 
 where $f_{k,j}$ is the $j$-th stimulus frequency of the $k$-th visual target, $j=1,2,3,4$, and $k=1,2,\cdots,160$. The final recognition result is determined by
@@ -57,7 +57,36 @@ where $f_{k,j}$ is the $j$-th stimulus frequency of the $k$-th visual target, $j
 \hat{k} =\max_{k}{\{r_{k,1}+r_{k,2}+r_{k,3}+r_{k,4}\}} 
 ```
 
-Second, we introduce the proposed pdCCA. The pdCCA is a CCA under a predefined phase difference constraint. Specifically, the phase of the sine-cosine reference signal is determined by the stimulus phase. In addition, the sine and cosine basis functions of $\mathbf{Y}_{pdCCA}$ for different frequencies are concatenated horizontally
+Second, we introduce the proposed pdCCA. The pdCCA is a CCA under a predefined phase difference constraint. Specifically, the phase of the sine-cosine reference signal is determined by the stimulus phase. In addition, the sine and cosine basis functions for different frequencies are concatenated horizontally. Then the CCA is used to find the spatial filters $\mathbf{u}$ and $\mathbf{v}$ to maximize the correlation $\rho$ between the 4-s SSVEP and $\mathbf{Y}\_{pdCCA}$ after spatial filtering:   
+   
+  
+```math
+\rho_j=\mathrm{CCA}\left(\left[\begin{array}{c}
+   \mathbf{X}_1 \\
+   \mathbf{X}_2 \\
+   \mathbf{X}_3 \\
+   \mathbf{X}_4 \end{array}\right],\mathbf{Y}_{pdCCA} \right),
+```  
+
+and  
+
+```math
+\mathbf{Y}_{pdCCA} = \left[\begin{array}{cccc}
+    \sin (2\pi f_{k,1} t+\phi_{k,1}) & \sin (2\pi f_{k,2} t+\phi_{k,2})& \sin (2\pi f_{k,3} t+\phi_{k,3})& \sin (2\pi f_{k,4} t+\phi_{k,4})\\
+    \cos (2\pi f_{k,1} t+\phi_{k,1}) & \cos (2\pi f_{k,2} t+\phi_{k,2})& \cos (2\pi f_{k,3} t+\phi_{k,3})& \cos (2\pi f_{k,4} t+\phi_{k,4})\\
+    \vdots & \vdots & \vdots & \vdots \\ 
+    \sin (2\pi N_h f_{k,1} t+N_h \phi_{k,1}) & \sin (2\pi N_h f_{k,2} t+N_h \phi_{k,2})& \sin (2\pi N_h f_{k,3} t+N_h \phi_{k,3})& \sin (2\pi N_h f_{k,4} t+N_h \phi_{k,4})\\
+    \cos (2\pi N_h f_{k,1} t+N_h \phi_{k,1}) & \cos (2\pi N_h f_{k,2} t+N_h \phi_{k,2})& \cos (2\pi N_h f_{k,3} t+N_h \phi_{k,3})& \cos (2\pi N_h f_{k,4} t+N_h \phi_{k,4})\\   
+	\end{array}\right]^\top 
+```	
+
+```math	
+	= \left[\begin{array}{cccc}
+    \mathbf{\Gamma}_{f_{k,1},\phi_{k,1}}^\top &  \mathbf{\Gamma}_{f_{k,2},\phi_{k,2}}^\top&  \mathbf{\Gamma}_{f_{k,3},\phi_{k,3}}^\top& \mathbf{\Gamma}_{f_{k,4},\phi_{k,4}}^\top\\
+    \mathbf{\Gamma}_{2f_{k,1},2\phi_{k,1}}^\top &  \mathbf{\Gamma}_{2f_{k,2},2\phi_{k,2}}^\top&  \mathbf{\Gamma}_{2f_{k,3},2\phi_{k,3}}^\top& \mathbf{\Gamma}_{2f_{k,4},2\phi_{k,4}}^\top\\
+    \vdots & \vdots & \vdots & \vdots \\ 
+    \mathbf{\Gamma}_{N_h \cdot f_{k,1}, N_h \cdot \phi_{k,1}}^\top &  \mathbf{\Gamma}_{N_h \cdot f_{k,2}, N_h \cdot \phi_{k,2}^\top&  \mathbf{\Gamma}_{N_h \cdot f_{k,3}, N_h \cdot \phi_{k,3}}^\top& \mathbf{\Gamma}_{N_h \cdot f_{k,4}, N_h \cdot \phi_{k,4}}^\top\end{array}\right]^\top
+```
 
 ## An example of the multi-frequency-modulated visual stimulation paradigms
 MFSC  
