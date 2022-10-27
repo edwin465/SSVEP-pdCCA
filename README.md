@@ -109,9 +109,18 @@ To further improve the pdCCA performance, we combine the computed coefficients $
 In ideal case, this strategy can achieve the higher recognition performance then the CCA and the pdCCA as it considers much more feature/information. We call it `the pdCCA+`.
 
 ## A public dataset for MFSC SSVEP-BCI
-MFSC  
-downloaded from  
+In [4], Chen et al. utilized the MFSC approach to implement a 160-target SSVEP-based BCI speller, in which each visual target is encoded with a unique sequential coding of four stimulus frequencies and phases. The four stimulus frequencies are selected from eight predefined stimulus frequencies. The predefined frequencies are 8 Hz, 9 Hz, 10 Hz, 11 Hz, 12 Hz, 13 Hz, 14 Hz, and 15 Hz, and the corresponding phases are 0, 0.5π, π, 1.5π, 0, 0.5π, π, and 1.5π.  
 
+In the experimental study, they recruited eight (or twelve) subjects in the offline (or online) experiment. All subjects were instructed to gaze at 160 targets one by one in random orders and then repeated three times (or two times). In total, there were 480 trials in the offline experiment (or 320 trials in the
+online experiment). In each trial, the visual target flashed for
+4 s, which could be divided into four 1-s segment and each
+segment was assigned one of eight frequencies. During the
+experiments, all subject data were recorded using a Neuroscan
+Synamps2 system through nine electrodes (Pz, PO5, PO3,
+POz, PO4, PO6, O1, Oz, and O2). More details can be found
+in [17]. The corresponding datasets for offline and online
+experiments can be freely downloaded from the website of
+Tsinghua BCI group (http://bci.med.tsinghua.edu.cn/).  
 
 ## Simulation study
 We compare the CCA and the pdCCA  
