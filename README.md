@@ -99,7 +99,7 @@ The final recognition result is determined by
 \hat{k} =\max_{k}{\{\rho_k\}} 
 ```
   
-### A combination of the CCA and the pdCCA  
+### What is the pdCCA+?  
 To further improve the pdCCA performance, we combine the computed coefficients $\bar{r}\_k$ and $\rho\_k$ for final recognition:
 
 ```math
