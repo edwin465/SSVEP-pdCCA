@@ -1,6 +1,9 @@
 # SSVEP-pdCCA
 
-Recently, the multi-frequency-modulated visual stimulation paradigm has been shown effective for the steady-state visual evoked potential (SSVEP)-based brain-computer interfaces (BCIs). 
+Recently, the multi-frequency-modulated visual stimulation paradigm has been shown effective for the steady-state visual evoked potential (SSVEP)-based brain-computer interfaces (BCIs). Up to now, almost all corresponding frequency recognition algorithms are based on the traditional canonical correlation analysis (CCA), especially in the `calibration-free` scenario. Although the CCA can work well, it usually cannot provide the optimal performance. **For the multi-frequency-modulated SSVEP, different frequency components are phase locked to the different stimuli, and thus their phase differences should be fixed, or constrained**. However, the current CCA cannot constrain the phase difference features between the multi-frequency-modulated SSVEP.  
+
+In this project, we propose a phase difference constrained CCA for the multi-frequency-modulated SSVEP-based BCIs.
+
 
 ## What is the multi-frequency-modulated visual stimulation paradigm? 
 In the multi-frequency-modulated visual stimulation paradigm, **each visual target is encoded with more than one frequency**. 
