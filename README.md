@@ -61,6 +61,8 @@ where $f_{k,j}$ is the $j$-th stimulus frequency of the $k$-th visual target, $j
 \hat{k} =\max_{k}{\{r_{k,1}+r_{k,2}+r_{k,3}+r_{k,4}\}} =\max_{k}{\{\bar{r}_{k}\}} 
 ```
 
+All the above procedure is illustrated in Fig. 4 in [4].
+
 Second, we introduce the proposed pdCCA. In short, `the pdCCA is the CCA under a predefined phase difference constraint`. Specifically, the phase of the sine-cosine reference signal is determined by the stimulus phase. In addition, the sine and cosine basis functions for different frequencies are concatenated horizontally. Then the CCA is used to find the spatial filters $\mathbf{u}$ and $\mathbf{v}$ to maximize the correlation $\rho$ between the 4-s SSVEP and $\mathbf{Y}\_{pdCCA}$ after spatial filtering:   
    
   
