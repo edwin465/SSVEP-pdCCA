@@ -158,5 +158,37 @@ Run `pdcca_acc_tsinghua_20220401_.m`
 |S12|	91.56%|	34.38%|	94.69%|	57.19%|	96.25%|
 |Mean|	85.13%|	34.27%|	93.70%|	56.09%|	94.84%|
 
+You can change different parameters, such as data_len=0.4, 0.5, ..., 1.0 (Table III). The grand average results should be equal to Table V.
 
+# Citation  
+If you use this code for a publication, please cite the following papers
 
+@article{wong2020learning,  
+title={Learning across multi-stimulus enhances target recognition methods in SSVEP-based BCIs},  
+author={Wong, Chi Man and Wan, Feng and Wang, Boyu and Wang, Ze and Nan, Wenya and Lao, Ka Fai and Mak, Peng Un and Vai, Mang I and Rosa, Agostinho},  
+journal={Journal of Neural Engineering},  
+volume={17},  
+number={1},  
+pages={016026},  
+year={2020},  
+publisher={IOP Publishing}  
+}  
+
+@article{wong2020spatial,  
+title={Spatial filtering in SSVEP-based BCIs: unified framework and new improvements},  
+author={Wong, Chi Man and Wang, Boyu and Wang, Ze and Lao, Ka Fai and Rosa, Agostinho and Wan, Feng},  
+journal={IEEE Transactions on Biomedical Engineering},  
+volume={67},  
+number={11},  
+pages={3057--3072},  
+year={2020},  
+publisher={IEEE}  
+}  
+
+@article{wong2023multi,  
+  title={Enhancing Detection of Multi-Frequency-Modulated SSVEP Using Phase Difference Constrained Canonical Correlation Analysis},  
+  author={Wong, Chi Man and Wang, Ze and Wang, Boyu and Rosa, Agostinho and Jung, Tzyy-Ping and Wan, Feng},  
+  journal={IEEE Transactions on Neural Systems and Rehabilitation Engineering},  
+  year={2023 (Early Access)},   
+  publisher={IEEE}  
+}
