@@ -139,6 +139,7 @@ Run `pdcca_acc_tsinghua_20220401_.m`
 |S8|	59.79%|	25.63%|	86.04%|	39.58%|	87.71%|  
 |Mean|	81.65%|	32.06%|	90.39%|	52.38%|	91.98%|  
 
+We can find that the pdCCA performs better than the CCA. The pdCCA+ accuracy looks better than the pdCCA accuracy.   
 
 2) Parameter setting: dataset_no=2; data_len=1; => Online exp. and 1 s data length 
 
@@ -155,10 +156,12 @@ Run `pdcca_acc_tsinghua_20220401_.m`
 |S9|	70.63%|	23.44%|	91.56%|	34.38%| 92.19%|
 |S10|	94.38%|	42.81%|	95.31%|	72.81%|	96.25%|
 |S11|	99.06%|	42.50%|	99.06%|	71.56%|	99.38%|
-|S12|	91.56%|	34.38%|	94.69%|	57.19%|	96.25%|
-|Mean|	85.13%|	34.27%|	93.70%|	56.09%|	94.84%|
+|S12|	91.56%|	34.38%|	94.69%|	57.19%|	96.25%| 
+|Mean|	85.13%|	34.27%|	93.70%|	56.09%|	94.84%|  
 
-You can change different parameters, such as data_len=0.4, 0.5, ..., 1.0 (Table III). The grand average results should be equal to Table V.
+We can find that the pdCCA performs better than the CCA. The pdCCA+ accuracy looks better than the pdCCA accuracy. 
+
+3) You can test different parameters, such as data_len=0.4, 0.5, ..., 1.0 (as shown in Table III). The grand average results should be equal to Table V.
 
 # Citation  
 If you use this code for a publication, please cite the following papers
