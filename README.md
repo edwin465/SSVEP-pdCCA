@@ -119,8 +119,44 @@ experiments, all subject data were recorded from nine electrodes (Pz, PO5, PO3, 
 
 The datasets corresponding to the offline and online experiments can be freely downloaded from the website of Tsinghua BCI group (http://bci.med.tsinghua.edu.cn/).  
 
+
 ## Simulation study
-We compare the CCA and the pdCCA  
+
+Run `pdcca_acc_tsinghua_20220401_.m`
+
+1) Parameter setting: dataset_no=1; data_len=1; => Offline exp. and 1 s data length  
+
+
+| ACC | CCA | pdCCA0 | pdCCA | pdCCA0+ | pdCCA+ |  
+| --- | --- | --- | --- | --- | --- | 
+|S1|	95.63%|	37.50%|	97.71%|	61.46%|	98.33%|  
+|S2|	92.50%|	38.75%|	93.13%|	64.79%|	93.75%|  
+|S3|	85.31%|	26.88%|	94.38%|	45.31%|	94.38%|  
+|S4|	89.58%|	37.92%|	91.67%|	62.71%|	95.21%|  
+|S5|	65.63%|	24.38%|	74.17%|	41.25%|	76.04%|  
+|S6|	79.79%|	35.21%|	91.67%|	54.17%|	94.38%|  
+|S7|	85.00%|	30.21%|	94.38%|	49.79%|	96.04%|  
+|S8|	59.79%|	25.63%|	86.04%|	39.58%|	87.71%|  
+|Mean|	81.65%|	32.06%|	90.39%|	52.38%|	91.98%|  
+
+
+2) Parameter setting: dataset_no=2; data_len=1; => Online exp. and 1 s data length 
+
+| ACC | CCA | pdCCA0 | pdCCA | pdCCA0+ | pdCCA+ |  
+| --- | --- | --- | --- | --- | --- | 
+|S1|	93.44%|	41.25%|	95.00%|	64.06%|	95.94%|
+|S2|	97.50%|	44.06%|	98.13%|	73.75%|	98.75%|
+|S3|	56.88%|	25.31%|	80.94%|	38.13%|	84.69%|
+|S4|	85.94%|	27.19%|	97.50%|	47.50%|	97.19%|
+|S5|	91.88%|	38.75%|	98.75%|	63.44%|	98.75%|
+|S6|	68.75%|	29.38%|	83.44%|	41.88%|	86.88%|
+|S7|	74.69%|	29.06%|	90.00%|	50.94%|	91.88%|
+|S8|	96.88%|	33.13%|	100.00%|	57.50%|	100.00%|
+|S9|	70.63%|	23.44%|	91.56%|	34.38%| 92.19%|
+|S10|	94.38%|	42.81%|	95.31%|	72.81%|	96.25%|
+|S11|	99.06%|	42.50%|	99.06%|	71.56%|	99.38%|
+|S12|	91.56%|	34.38%|	94.69%|	57.19%|	96.25%|
+|Mean|	85.13%|	34.27%|	93.70%|	56.09%|	94.84%|
 
 
 
