@@ -1,3 +1,7 @@
+% The MFSC data is downloaded from Tsinghua BCI research group (http://bci.med.tsinghua.edu.cn)
+% When the data is ready, then run this m-file
+% This m-file is used to load the MFSC data and then stored in the specified format for our following data analysis
+
 close all
 clear all
 filename=mfilename('fullpath');
