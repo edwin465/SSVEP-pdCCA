@@ -126,7 +126,7 @@ The datasets corresponding to the offline and online experiments can be freely d
 3) Run the code `load_mat_2021.m` and get the new data files named as S1.mat, S2.mat, ..., S8.mat (for Offline exp.) and named as S1.mat, S2.mat, ..., S12.mat （for Online exp.)
 4) Run `pdcca_acc_tsinghua_20220401_.m`
 
-1) Parameter setting: dataset_no=1; data_len=1; => Offline exp. and 1 s data length  
+- Parameter setting: dataset_no=1; data_len=1; => Offline exp. and 1 s data length  
 
 
 | ACC | CCA | pdCCA0 | pdCCA | pdCCA0+ | pdCCA+ |  
@@ -143,7 +143,7 @@ The datasets corresponding to the offline and online experiments can be freely d
 
 We can find that the pdCCA performs better than the CCA. The pdCCA+ accuracy looks better than the pdCCA accuracy.   
 
-2) Parameter setting: dataset_no=2; data_len=1; => Online exp. and 1 s data length 
+- Parameter setting: dataset_no=2; data_len=1; => Online exp. and 1 s data length 
 
 | ACC | CCA | pdCCA0 | pdCCA | pdCCA0+ | pdCCA+ |  
 | --- | --- | --- | --- | --- | --- | 
@@ -163,7 +163,7 @@ We can find that the pdCCA performs better than the CCA. The pdCCA+ accuracy loo
 
 We can find that the pdCCA performs better than the CCA. The pdCCA+ accuracy looks better than the pdCCA accuracy. 
 
-3) You can test different parameters, such as data_len=0.4, 0.5, ..., 1.0 (as shown in Table III). The grand average results should be equal to Table V.
+- You can test different parameters, such as data_len=0.4, 0.5, ..., 1.0 (as shown in Table III). The grand average results should be equal to Table V.
 
 # Citation  
 If you use this code for a publication, please cite the following papers
@@ -194,6 +194,8 @@ publisher={IEEE}
   title={Enhancing Detection of Multi-Frequency-Modulated SSVEP Using Phase Difference Constrained Canonical Correlation Analysis},  
   author={Wong, Chi Man and Wang, Ze and Wang, Boyu and Rosa, Agostinho and Jung, Tzyy-Ping and Wan, Feng},  
   journal={IEEE Transactions on Neural Systems and Rehabilitation Engineering},  
-  year={2023 (Early Access)},   
+  volume={31},
+  pages={1343--1352},
+  year={2023},  
   publisher={IEEE}  
 }
