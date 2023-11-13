@@ -121,8 +121,10 @@ The datasets corresponding to the offline and online experiments can be freely d
 
 
 ## Simulation study
-
-Run `pdcca_acc_tsinghua_20220401_.m`
+1) Go to http://bci.med.tsinghua.edu.cn/ and download the Offline and Online datasets in "160 Targets SSVEP BCI Dataset"
+2) Extract the rar file and put them in the directory (e.g.  the directory of the Offline datasets is `..\TH_MFSC\Offline` and the Online datasets is `..\TH_MFSC\Online`)
+3) Run the code `load_mat_2021.m` and get the new data files named as S1.mat, S2.mat, ..., S8.mat (for Offline exp.) and named as S1.mat, S2.mat, ..., S12.mat （for Online exp.)
+4) Run `pdcca_acc_tsinghua_20220401_.m`
 
 1) Parameter setting: dataset_no=1; data_len=1; => Offline exp. and 1 s data length  
 
